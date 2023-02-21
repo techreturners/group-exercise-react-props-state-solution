@@ -2,7 +2,6 @@
 import ChuckImage from '../assets/chuck_norris.jpg';
 
 interface ChuckCardProps {
-	// greeting: React.ReactNode; <-- if not destructuring greeting
 	greeting: string;
 }
 

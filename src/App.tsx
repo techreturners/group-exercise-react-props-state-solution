@@ -48,13 +48,12 @@ function App() {
 				)}
 			</ul>
 
-			{/* {jokes.map((joke) => <ChuckJoke joke={joke}/>)} <---- Passing the whole joke object to the props object */}
+			{/* {jokes.map((joke) => <ChuckJoke joke={joke}/>)} <---- Passing the whole joke object to the props object (instead of as individual attributes) */}
 
 			<h2>Filtered Jokes: </h2>
 			<ul>
-				{filteredJokes.map((joke) => <li>
+				{filteredJokes.map((joke) => <li key={joke.id}>
 					<ChuckJoke joke={joke.joke} id={joke.id} />
-
 				</li>
 				)}
 			</ul>
