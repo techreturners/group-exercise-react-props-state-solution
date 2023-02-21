@@ -1,8 +1,16 @@
-const ChuckInfo = () => {
+interface ChuckInfoProps {
+	roundHouseKicks: number;
+	whalesSaved: number;
+}
 
-	// 💡 Note that this component uses an "explicit return"
-	// Compare to <ChuckCard/> which just returns the JSX directly like this:
-	// const ChuckCard = () => <>... some JSX Here...</>;
+const ChuckInfo : React.FC<ChuckInfoProps> = ({ roundHouseKicks, whalesSaved }) => {
+	
+// const ChuckInfo : React.FC<{roundHouseKicks: number; whalesSaved: number;}> = ({roundHouseKicks, whalesSaved}) => { <----- anonymous types way
+	
+	
+	// 💡 Note that this component, like the <ChuckCard />, uses an "explicit return"
+	// Compare this to <ChuckJoke/> which just returns the JSX directly like this:
+	// const ChuckJoke = () => <>... some JSX Here...</>;
 
 	// Instead, this component uses curly braces `{}` and a `return` statement
 
@@ -11,18 +19,17 @@ const ChuckInfo = () => {
 
 	// If you don't have any particular need to write TypeScript/JavaScript logic 
 	// in a component, then it's cleaner to use the implicit return style from 
-	// <ChuckCard/> otherwise you can use the curly braces and return to write code 
-	// first
+	// <ChuckJoke/> 
 
-	const someVariable = ""; // 💡 you don't need this to finish this exercise, it's just to demo  that JS can go here
-
+	const someVariable = ""; // 💡 you don't need this to finish this exercise, it's just to demo that JS can go here!
 
 	return (
 		<>
-			<p>Number of Whales Saved: </p>
+			<p>Number of Whales Saved: {whalesSaved}</p>
 
-			<p>Number of Round House Kicks (in the last day): </p>
-		</>);
+			<p>Number of Round House Kicks (in the last day): {roundHouseKicks}</p>
+		</>
+		);
 }
 
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ChuckCard from './components/chuck_card';
 import ChuckInfo from './components/chuck_info';
 import Joke from './joke';
+import ChuckJoke from './components/chuck_joke';
 
 function App() {
 
@@ -26,17 +27,37 @@ function App() {
 		"joke": "Chuck Norris does not own a stove, oven, or microwave, because revenge is a dish best served cold.",
 	}])
 
+
+	const filteredJokes = jokes.filter((joke) => joke.id === 3)
+
 	return (
 		<div className="App">
 
 			<h1>React props and state</h1>
-			<ChuckCard />
+			<ChuckCard greeting={chuckGreeting} />
 
-			<h2>Chuck Info: </h2>
-			<ChuckInfo />
+			<h2>Chuck Info:</h2>
+			<ChuckInfo whalesSaved={whalesSaved} roundHouseKicks={roundHouseKicks} />
 
 			<h2>Jokes: </h2>
+			<ul>
+				{jokes.map((joke) =>
+					<li key={joke.id}>
+						<ChuckJoke joke={joke.joke} id={joke.id} />
+					</li>
+				)}
+			</ul>
 
+			{/* {jokes.map((joke) => <ChuckJoke joke={joke}/>)} <---- Passing the whole joke object to the props object */}
+
+			<h2>Filtered Jokes: </h2>
+			<ul>
+				{filteredJokes.map((joke) => <li>
+					<ChuckJoke joke={joke.joke} id={joke.id} />
+
+				</li>
+				)}
+			</ul>
 		</div>
 	);
 }
